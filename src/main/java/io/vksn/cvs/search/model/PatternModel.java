@@ -21,8 +21,8 @@ public class PatternModel<T> extends DefaultListModel<T>{
 	
 	public List<T> getAll() {
 		List<T> data = new ArrayList<T>();
-		for(int i = 0; i < getSize(); i++) { 
-			data.add(getElementAt(i));
+		for(int i = 0; i < super.getSize(); i++) { 
+			data.add(super.getElementAt(i));
 		}
 		return data;
 		

@@ -24,7 +24,7 @@ import io.vksn.cvs.search.listeners.FileChooserActionListener;
 import io.vksn.cvs.search.model.PatternModel;
 
 public class SearchPatternsPanel extends JPanel {
-	private JList<String> searchPatterns = new JList<String>();
+	private final JList<String> searchPatterns = new JList<String>();
 	/**
 	 * 
 	 */
@@ -62,8 +62,6 @@ public class SearchPatternsPanel extends JPanel {
 							while ((line = reader.readLine()) != null) {
 								((PatternModel<String>)searchPatterns.getModel()).addElement(line);
 							}
-							
-
 						} catch (FileNotFoundException e) {
 							throw new RuntimeException();
 						} catch (IOException e) {
@@ -87,7 +85,12 @@ public class SearchPatternsPanel extends JPanel {
 	}
 	
 	public List<String> getPatterns() {
+		System.out.println(searchPatterns.toString());
+		
 		PatternModel<String> patterns  = (PatternModel<String>)searchPatterns.getModel();
+		System.out.println(patterns.toString());
+		System.out.println(searchPatterns.getModel().getSize());
+		System.out.println(patterns.getAll().size());
 		return patterns.getAll();
 	}
 }
